@@ -362,7 +362,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-12-09 18:58:18'>2021-12-09 15:13</time>
+            发布时间 : <time class="date" title='最后更新: 2021-12-09 20:44:22'>2021-12-09 15:13</time>
         
     </div>
     <div class="article-meta">
@@ -400,11 +400,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/1556588/1627558722659-3f26e480-3426-4224-b3a2-5a99919142a9.png" alt="img"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/1556588/1627558791461-0bb9cd93-21c7-4f43-869b-2ae989c8a53a.png" alt="img"></p>
+        <p><img src="https://gitee.com/shianpang/picture/raw/master/img/1627558722659-3f26e480-3426-4224-b3a2-5a99919142a9.png" alt="img"></p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/1627558791461-0bb9cd93-21c7-4f43-869b-2ae989c8a53a.png" alt="img"></p>
 <p><img src="https://cdn.nlark.com/yuque/0/2021/png/1556588/1627558830679-b8447949-2f23-4daa-9bb3-75dfd1174d8f.png" alt="img"></p>
 <p><img src="https://cdn.nlark.com/yuque/0/2021/png/1556588/1627558881393-d4a7d57f-5f01-4f56-84cc-1c8c1894f76a.png" alt="img"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/1556588/1627558963362-a20ba3b1-36b9-49fc-a2a8-114e24c181bb.png" alt="img"></p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/1627558963362-a20ba3b1-36b9-49fc-a2a8-114e24c181bb.png" alt="img"></p>
 <p><img src="https://cdn.nlark.com/yuque/0/2021/png/1556588/1627558987308-af60b758-c287-4da3-a0ac-5e128e13a7aa.png" alt="img"></p>
 
       
@@ -557,6 +557,44 @@
 </style>
 
 
+
+
+
+
+
+<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
+    <div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1901371647&auto=1&height=66"></iframe>
+</div>
+
+<!--以下代码是为了支持随时拖动音乐控件的位置，如没有需求，可去掉下面代码-->
+<script>
+var $DOC = $(document)
+$('#musicMouseDrag').on('mousedown', function (e) {
+// 阻止文本选中
+$DOC.bind("selectstart", function () {
+return false;
+});
+$('#musicDragArea').css('height', '100%');
+var $moveTarget = $('#musicMouseDrag');
+$moveTarget.css('border', '1px dashed grey')
+var div_x = e.pageX - $moveTarget.offset().left;
+var div_y = e.pageY - $moveTarget.offset().top;
+$DOC.on('mousemove', function (e) {
+var targetX = e.pageX - div_x;
+var targetY = e.pageY - div_y;
+targetX = targetX < 0 ? 0 : (targetX + $moveTarget.outerWidth() >= window.innerWidth) ? window.innerWidth - $moveTarget.outerWidth() : targetX;
+targetY = targetY < 0 ? 0 : (targetY + $moveTarget.outerHeight() >= window.innerHeight) ? window.innerHeight - $moveTarget.outerHeight() : targetY;
+$moveTarget.css({'left': targetX + 'px', 'top': targetY + 'px', 'bottom': 'inherit', 'right': 'inherit'})
+}).on('mouseup', function () {
+$DOC.unbind("selectstart");
+$DOC.off('mousemove')
+$DOC.off('mouseup')
+$moveTarget.css('border', 'none')
+$('#musicDragArea').css('height', '10px');
+})
+})
+</script>
 
 
 

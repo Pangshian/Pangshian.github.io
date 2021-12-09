@@ -358,7 +358,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-12-09 19:01:16'>2021-12-09 19:13</time>
+            发布时间 : <time class="date" title='最后更新: 2021-12-09 20:42:34'>2021-12-09 19:13</time>
         
     </div>
     <div class="article-meta">
@@ -607,11 +607,11 @@
 <p>•     2.迁移训练（课后作业）</p>
 <p>•     （1）向台湾某青年旅行团介绍我们的学校。</p>
 <p>•      （2）结合自己的生活经历，自己确定某一类读者，向他们介绍“我们的学校”。</p>
-<h2 id="第四部分-20份初中写事教学案例的分析"><a href="#第四部分-20份初中写事教学案例的分析" class="headerlink" title="第四部分 20份初中写事教学案例的分析"></a>第四部分 20份初中写事教学案例的分析</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211209185049152.png" alt="image-20211209185049152"></p>
+<h2 id="第四部分-20份初中写事教学案例的分析"><a href="#第四部分-20份初中写事教学案例的分析" class="headerlink" title="第四部分 20份初中写事教学案例的分析"></a>第四部分 20份初中写事教学案例的分析</h2><p><img src="https://gitee.com/shianpang/picture/raw/master/img/image-20211209185049152.png" alt="image-20211209185049152"></p>
 <p><strong>教学目标：充斥文章知识陈述和灌输，写作技能教学沦为虚空</strong></p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211209185107915.png" alt="image-20211209185107915"></p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/image-20211209185107915.png" alt="image-20211209185107915"></p>
 <p>图3.写作教学内容分布图</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211209185121300.png" alt="image-20211209185121300"></p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/image-20211209185121300.png" alt="image-20211209185121300"></p>
 <p>图4 写作教学方法类型分布图</p>
 
       
@@ -764,6 +764,44 @@
 </style>
 
 
+
+
+
+
+
+<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
+    <div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1901371647&auto=1&height=66"></iframe>
+</div>
+
+<!--以下代码是为了支持随时拖动音乐控件的位置，如没有需求，可去掉下面代码-->
+<script>
+var $DOC = $(document)
+$('#musicMouseDrag').on('mousedown', function (e) {
+// 阻止文本选中
+$DOC.bind("selectstart", function () {
+return false;
+});
+$('#musicDragArea').css('height', '100%');
+var $moveTarget = $('#musicMouseDrag');
+$moveTarget.css('border', '1px dashed grey')
+var div_x = e.pageX - $moveTarget.offset().left;
+var div_y = e.pageY - $moveTarget.offset().top;
+$DOC.on('mousemove', function (e) {
+var targetX = e.pageX - div_x;
+var targetY = e.pageY - div_y;
+targetX = targetX < 0 ? 0 : (targetX + $moveTarget.outerWidth() >= window.innerWidth) ? window.innerWidth - $moveTarget.outerWidth() : targetX;
+targetY = targetY < 0 ? 0 : (targetY + $moveTarget.outerHeight() >= window.innerHeight) ? window.innerHeight - $moveTarget.outerHeight() : targetY;
+$moveTarget.css({'left': targetX + 'px', 'top': targetY + 'px', 'bottom': 'inherit', 'right': 'inherit'})
+}).on('mouseup', function () {
+$DOC.unbind("selectstart");
+$DOC.off('mousemove')
+$DOC.off('mouseup')
+$moveTarget.css('border', 'none')
+$('#musicDragArea').css('height', '10px');
+})
+})
+</script>
 
 
 
