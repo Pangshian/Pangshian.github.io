@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AXI_Lite总线 | 安梅blog</title>
+  <meta name="keywords" content=" AXI , 数字IC设计相关 ">
+  <meta name="description" content="AXI_Lite总线 | 安梅blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="menu:about: # ‘关于’ 按钮on: true # 是否显示url: &#x2F;about # 跳转链接type: 1 # 跳转类型 1：站内异步跳转 2：当前页面跳转 3：打开新的tab页">
+<meta property="og:type" content="website">
+<meta property="og:title" content="安梅blog">
+<meta property="og:url" content="http://example.com/about/index.html">
+<meta property="og:site_name" content="安梅blog">
+<meta property="og:description" content="menu:about: # ‘关于’ 按钮on: true # 是否显示url: &#x2F;about # 跳转链接type: 1 # 跳转类型 1：站内异步跳转 2：当前页面跳转 3：打开新的tab页">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-09T08:58:45.518Z">
+<meta property="article:modified_time" content="2021-12-09T08:58:45.518Z">
+<meta property="article:author" content="庞仕安">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>庞仕安</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1085495004@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1085495004&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(6)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="数字IC设计相关">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        数字IC设计相关
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="数字IC设计相关<--->AXI">
+                                        
+                                        AXI
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数字IC设计相关<--->DC综合">
+                                        
+                                        DC综合
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        
+                        工具
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="诗梅文库">
+                        
+                        诗梅文库
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="6">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://pangshian.github.io/">庞仕安</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>低功耗</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>诗梅精选</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数字IC设计相关</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AXI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DC综合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 诗梅文库 "
+           href="/2021/12/09/%E6%99%AE%E9%80%9A%E9%AB%98%E4%B8%AD%E8%AF%AD%E6%96%87%E8%AF%BE%E7%A8%8B%E6%A0%87%E5%87%86%EF%BC%882017%E5%B9%B4%E7%89%88%EF%BC%89/"
+           data-tag="诗梅精选"
+           data-author="" >
+            <span class="post-title" title="普通高中语文课程标准（2017年版）">普通高中语文课程标准（2017年版）</span>
+            <span class="post-date" title="2021-12-09 19:13:47">2021/12/09</span>
+        </a>
+        
+        <a  class="全部文章 诗梅文库 "
+           href="/2021/12/09/%E5%86%99%E4%BD%9C%E8%AF%BE%E5%A0%82%E6%95%99%E5%AD%A6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%BC%8F/"
+           data-tag="诗梅精选"
+           data-author="" >
+            <span class="post-title" title="写作课堂教学设计的基本模式">写作课堂教学设计的基本模式</span>
+            <span class="post-date" title="2021-12-09 19:13:47">2021/12/09</span>
+        </a>
+        
+        <a  class="全部文章 数字IC设计相关 AXI "
+           href="/2021/12/09/AXI_Lite%E6%80%BB%E7%BA%BF/"
+           data-tag="AXI,数字IC设计相关"
+           data-author="" >
+            <span class="post-title" title="AXI_Lite总线">AXI_Lite总线</span>
+            <span class="post-date" title="2021-12-09 15:13:47">2021/12/09</span>
+        </a>
+        
+        <a  class="全部文章 数字IC设计相关 DC综合 "
+           href="/2021/12/09/DC%E7%BB%BC%E5%90%88/"
+           data-tag="数字IC设计相关,DC综合"
+           data-author="" >
+            <span class="post-title" title="DC综合">DC综合</span>
+            <span class="post-date" title="2021-12-09 15:13:47">2021/12/09</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2021/12/09/hello-world/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="hello world">hello world</span>
+            <span class="post-date" title="2021-12-09 15:13:47">2021/12/09</span>
+        </a>
+        
+        <a  class="全部文章 数字IC设计相关 DC综合 "
+           href="/2021/12/09/%E4%BD%8E%E5%8A%9F%E8%80%97%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5/"
+           data-tag="数字IC设计相关,低功耗"
+           data-author="" >
+            <span class="post-title" title="低功耗设计策略">低功耗设计策略</span>
+            <span class="post-date" title="2021-12-09 09:00:47">2021/12/09</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-AXI_Lite总线" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">AXI_Lite总线</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="数字IC设计相关">数字IC设计相关</a> > 
+            
+            <a  data-rel="数字IC设计相关&lt;---&gt;AXI">AXI</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">AXI</a>
+            
+            <a class="color4">数字IC设计相关</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-12-10 21:13:48'>2021-12-09 15:13</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AXI-Lite%E6%80%BB%E7%BA%BF"><span class="toc-text">AXI_Lite总线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AXI%E6%80%BB%E7%BA%BF%E4%B8%8EZYNQ%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">AXI总线与ZYNQ的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AXI%E6%80%BB%E7%BA%BF%E5%92%8CAXI%E6%8E%A5%E5%8F%A3%E4%BB%A5%E5%8F%8AAXI%E5%8D%8F%E8%AE%AE"><span class="toc-text">AXI总线和AXI接口以及AXI协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AXI%E6%80%BB%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="toc-text">AXI总线概述</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8EAXI4-Stream%E6%80%BB%E7%BA%BF%E5%91%BD%E5%90%8D%E8%80%8C%E8%A8%80%EF%BC%8C%E9%99%A4%E4%BA%86%E6%80%BB%E7%BA%BF%E6%97%B6%E9%92%9F%E5%92%8C%E6%80%BB%E7%BA%BF%E5%A4%8D%E4%BD%8D%EF%BC%8C%E5%85%B6%E4%BB%96%E7%9A%84%E4%BF%A1%E5%8F%B7%E7%BA%BF%E9%83%BD%E6%98%AF%E4%BB%A5T%E5%AD%97%E6%AF%8D%E5%BC%80%E5%A4%B4%EF%BC%8C%E5%90%8E%E9%9D%A2%E8%B7%9F%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%8D%95%E8%AF%8D%EF%BC%8C%E7%9C%8B%E6%B8%85%E8%BF%99%E4%B8%80%E7%82%B9%E5%90%8E%EF%BC%8C%E8%83%BD%E5%B8%AE%E5%8A%A9%E8%AF%BB%E8%80%85%E8%AE%B0%E5%BF%86%E6%AF%8F%E4%B8%AA%E4%BF%A1%E5%8F%B7%E7%BA%BF%E7%9A%84%E6%84%8F%E4%B9%89%E3%80%82%E5%A6%82TVALID"><span class="toc-text">对于AXI4-Stream总线命名而言，除了总线时钟和总线复位，其他的信号线都是以T字母开头，后面跟上一个有意义的单词，看清这一点后，能帮助读者记忆每个信号线的意义。如TVALID</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AXI%E6%8E%A5%E5%8F%A3%E4%BB%8B%E7%BB%8D"><span class="toc-text">AXI接口介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AXI%E5%8D%8F%E8%AE%AE%E6%A6%82%E8%BF%B0"><span class="toc-text">AXI协议概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AXI%E5%8D%8F%E8%AE%AE%E4%B9%8B%E6%8F%A1%E6%89%8B%E5%8D%8F%E8%AE%AE"><span class="toc-text">AXI协议之握手协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AA%81%E5%8F%91%E5%BC%8F%E8%AF%BB%E5%86%99"><span class="toc-text">突发式读写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AXI4-Lite%E8%AF%A6%E8%A7%A3"><span class="toc-text">AXI4-Lite详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AXI4-Lite%E6%BA%90%E7%A0%81%E6%9F%A5%E7%9C%8B"><span class="toc-text">AXI4-Lite源码查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-text">源码分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%AD%94%E4%BF%A1%E5%8F%B7"><span class="toc-text">应答信号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="AXI-Lite总线"><a href="#AXI-Lite总线" class="headerlink" title="AXI_Lite总线"></a>AXI_Lite总线</h1><h2 id="AXI总线与ZYNQ的关系"><a href="#AXI总线与ZYNQ的关系" class="headerlink" title="AXI总线与ZYNQ的关系"></a>AXI总线与ZYNQ的关系</h2><p>AXI（Advanced eXtensible Interface高级可拓扩展接口）本是由ARM<br>公司提出的一种总线协议，Xilinx从6 系列的FPGA 开始对AXI 总线提供支持，此时AXI<br>已经发展到了AXI4 这个版本，所以当你用到Xilinx<br>的软件的时候看到的都是“AIX4”的IP，如Vivado 打包一个AXI<br>IP的时候，看到的都是Create a new AXI4 peripheral。到了ZYNQ 就更不必说了，AXI<br>总线更是应用广泛，双击查看ZYNQ 的IP 核的内部配置，随处可见AXI 的身影。</p>
+<h2 id="AXI总线和AXI接口以及AXI协议"><a href="#AXI总线和AXI接口以及AXI协议" class="headerlink" title="AXI总线和AXI接口以及AXI协议"></a>AXI总线和AXI接口以及AXI协议</h2><p>总线、接口和协议，这三个词常常被联系在一起。</p>
+<p>总线：是一组传输通道，是各种逻辑器件构成的传输数据的通道，一般由由数据线、地址线、控制线等构成。</p>
+<p>接口：是一种连接标准，又常常被称之为物理接口。</p>
+<p>协议：就是传输数据的规则。</p>
+<h2 id="AXI总线概述"><a href="#AXI总线概述" class="headerlink" title="AXI总线概述"></a>AXI总线概述</h2><p>在ZYNQ中有支持三种AXI总线，拥有三种AXI接口，当然用的都是AXI协议。其中三种AXI总线分别为：</p>
+<p>AXI4：（For high-performance memory-mapped<br>requirements.）主要面向高性能地址映射通信的需求，是面向地址映射的接口，允许最大256轮的数据突发传输；</p>
+<p>AXI4-Lite：（For simple, low-throughput memory-mapped communication<br>）是一个轻量级的地址映射单次传输接口，占用很少的逻辑单元。</p>
+<p>AXI4-Stream：（For high-speed streaming<br>data.）面向高速流数据传输；去掉了地址项，允许无限制的数据突发传输规模。</p>
+<p>首先说AXI4总线和AXI4-Lite总线具有相同的组成部分：</p>
+<p>（1）读地址通道，包含ARVALID, ARADDR, ARREADY信号；</p>
+<p>（2）读数据通道，包含RVALID, RDATA, RREADY, RRESP信号；</p>
+<p>（3）写地址通道，包含AWVALID，AWADDR, AWREADY信号；</p>
+<p>（4）写数据通道，包含WVALID, WDATA，WSTRB, WREADY信号；</p>
+<p>（5）写应答通道，包含BVALID, BRESP, BREADY信号；</p>
+<p>（6）系统通道，包含：ACLK，ARESETN信号</p>
+<p>AXI4总线和AXI4-Lite总线的信号也有他的命名特点：</p>
+<p>读地址信号都是以AR开头（A：address；R：read）</p>
+<p>写地址信号都是以AW开头（A：address；W：write）</p>
+<p>读数据信号都是以R开头（R：read）</p>
+<p>写数据信号都是以W开头（W：write）</p>
+<p>应答型号都是以B开头（B：back（answer back））</p>
+<p>而AXI4-Stream总线的组成有：</p>
+<p>（1）ACLK信号：总线时钟，上升沿有效；</p>
+<p>（2）ARESETN信号：总线复位，低电平有效</p>
+<p>（3）TREADY信号：从机告诉主机做好传输准备；</p>
+<p>（4）TDATA信号：数据，可选宽度32,64,128,256bit</p>
+<p>（5）TSTRB信号：每一bit对应TDATA的一个有效字节，宽度为TDATA/8</p>
+<p>（6）TLAST信号：主机告诉从机该次传输为突发传输的结尾；</p>
+<p>（7）TVALID信号：主机告诉从机数据本次传输有效；</p>
+<p>（8）TUSER信号：用户定义信号，宽度为128bit。</p>
+<h1 id="对于AXI4-Stream总线命名而言，除了总线时钟和总线复位，其他的信号线都是以T字母开头，后面跟上一个有意义的单词，看清这一点后，能帮助读者记忆每个信号线的意义。如TVALID"><a href="#对于AXI4-Stream总线命名而言，除了总线时钟和总线复位，其他的信号线都是以T字母开头，后面跟上一个有意义的单词，看清这一点后，能帮助读者记忆每个信号线的意义。如TVALID" class="headerlink" title="对于AXI4-Stream总线命名而言，除了总线时钟和总线复位，其他的信号线都是以T字母开头，后面跟上一个有意义的单词，看清这一点后，能帮助读者记忆每个信号线的意义。如TVALID"></a>对于AXI4-Stream总线命名而言，除了总线时钟和总线复位，其他的信号线都是以T字母开头，后面跟上一个有意义的单词，看清这一点后，能帮助读者记忆每个信号线的意义。如TVALID</h1><p>T+单词Valid（有效），那么读者就应该立刻反应该信号的作用。每个信号的具体作用，在后面分析源码时再做分析</p>
+<h2 id="AXI接口介绍"><a href="#AXI接口介绍" class="headerlink" title="AXI接口介绍"></a>AXI接口介绍</h2><p>三种AXI接口分别是：</p>
+<p>AXI-GP接口（4个）：是通用的AXI接口，包括两个32位主设备接口和两个32位从设备接口，用过改接口可以访问PS中的片内外设。</p>
+<p>AXI-HP接口（4个）：是高性能/带宽的标准的接口，PL模块作为主设备连接（从下图中箭头可以看出）。主要用于PL访问PS上的存储器（DDR和On-Chip<br>RAM）。</p>
+<p>AXI-ACP接口（1个）：是ARM多核架构下定义的一种接口，中文翻译为加速器一致性端口，用来管理DMA之类的不带缓存的AXI外设，PS端是Slave接口。</p>
+<h2 id="AXI协议概述"><a href="#AXI协议概述" class="headerlink" title="AXI协议概述"></a><img src="https://gitee.com/shianpang/picture/raw/master/img/bf42777e8b3b7b2c951288000793e74a.png">AXI协议概述</h2><p>讲到协议不可能说是撇开总线单讲协议，因为协议的制定也是要建立在总线构成之上的。虽然说AXI4，AXI4-Lite，AXI4-Stream都是AXI4协议，但是各自细节上还是不同的。</p>
+<p>总的来说，AXI总线协议的两端可以分为分为主（master）、从（slave）两端，他们之间一般需要通过一个AXI<br>Interconnect相连接，作用是提供将一个或多个AXI主设备连接到一个或多个AXI从设备的一种交换机制。当我们添加了zynq以及带AXI的IP后再进行自动连线时vivado会自动帮我们添加上这个IP，大家应该是不陌生了。</p>
+<p>AXI Interconnect的主要作用是，当存在多个主机以及从机器时，AXI<br>Interconnect负责将它们联系并管理起来。由于AXI支持乱序发送，乱序发送需要主机的ID信号支撑，而不同的主机发送的ID可能相同，而AXI<br>Interconnect解决了这一问题，他会对不同主机的ID信号进行处理让ID变得唯一。</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/17bba5744523a100ced80088ce03f770.png"></p>
+<p>AXI协议将读地址通道，读数据通道，写地址通道，写数据通道，写响应通道分开，各自通道都有自己的握手协议。每个通道互不干扰却又彼此依赖。这也是AXI高效的原因之一。</p>
+<h2 id="AXI协议之握手协议"><a href="#AXI协议之握手协议" class="headerlink" title="AXI协议之握手协议"></a>AXI协议之握手协议</h2><p>AXI4 所采用的是一种READY，VALID<br>握手通信机制，简单来说主从双方进行数据通信前，有一个握手的过程。传输源产生VLAID<br>信号来指明何时数据或控制信息有效。而目地源产生READY<br>信号来指明已经准备好接受数据或控制信息。传输发生在VALID和READY<br>信号同时为高的时候。VALID 和READY 信号的出现有三种关系。</p>
+<ol>
+<li><img src="https://gitee.com/shianpang/picture/raw/master/img/458916d4ad0c9c69eed9ad667afdf559.png">VALID 先变高READY<br> 后变高。时序图如下：</li>
+</ol>
+<p>在箭头处信息传输发生。</p>
+<ol>
+<li> EADY 先变高VALID 后变高。时序图如下：</li>
+</ol>
+<p>在箭头处信息传输发生。<img src="https://gitee.com/shianpang/picture/raw/master/img/841a1cfea2bf7358661d5c2ae6b11cd4.png"></p>
+<ol>
+<li><img src="https://gitee.com/shianpang/picture/raw/master/img/91ebda126a17042b02a626be3d34663f.png">VALID 和READY<br> 信号同时变高。时序图如下：</li>
+</ol>
+<p>在这种情况下，信息传输立马发生，如图箭头处指明信息传输发生。</p>
+<p>需要强调的是，AXI的五个通道，每个通道都有握手机制，接下来我们就来分析一下AXI-Lite的源码来更深入的了解AXI机制</p>
+<h2 id="突发式读写"><a href="#突发式读写" class="headerlink" title="突发式读写"></a>突发式读写</h2><ol>
+<li> <img src="https://gitee.com/shianpang/picture/raw/master/img/e185683227ea476539cffa59d41345ee.png">突发式读的时序图如下：</li>
+</ol>
+<p>当地址出现在地址总线后，传输的数据将出现在读数据通道上。设备保持VALID<br>为低直到读数据有效。为了表明一次突发式读写的完成，设备用RLAST<br>信号来表示最后一个被传输的数据。</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/24e42a71fba47f153a10d829a7ca9d50.png">2、突发式写时序图如下：</p>
+<p>这一过程的开始时，主机发送地址和控制信息到写地址通道中，然后主机发送每一个写数据到写数据通道中。当主机发送最后一个数据时，WLAST<br>信号就变为高。当设备接收完所有数据之后他将一个写响应发送回主机来表明写事务完成。</p>
+<h2 id="AXI4-Lite详解"><a href="#AXI4-Lite详解" class="headerlink" title="AXI4-Lite详解"></a>AXI4-Lite详解</h2><h4 id="AXI4-Lite源码查看"><a href="#AXI4-Lite源码查看" class="headerlink" title="AXI4-Lite源码查看"></a>AXI4-Lite源码查看</h4><p>Step1：要看到AXI-Lite的源码，我们先要自定义一个AXI-Lite的IP，新建工程之后，选择,菜单栏-&gt;Tools-&gt;Creat<br>and Package IP：</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/4b3371316abba5553f41749165a06d26.png"></p>
+<p>Step2：选择Next</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/0f1d08937fbc909dd6c2612bf6cb4d6e.png"></p>
+<p>Step3：选择Create AXI4 Peripheral，然后Next：</p>
+<p><img src="media/f295b46ec7371aa47ae0b9b8f9d0042c.png"></p>
+<p>Step4：默认，选择Next</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/7c320d597d463d1564baad12255b41ea.png"></p>
+<p>Step5：注意这里接口类型选择Lite，选择Next：</p>
+<p><img src="media/ad7fef4cbf9701de83c918fa68aed82f.png"></p>
+<p>Step6：选择Edit IP，点击Finish：</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/6802d481d8446c80d7ddd2bf155d3671.png"></p>
+<p>Step7：此后，Vivado会新建一个工程，专门编辑该IP，通过该工程，我们就可以看到Vivado为我们生成的AXI-Lite的操作源码：</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/869872cf06d669c913652e9359d87db2.png"></p>
+<h4 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h4><table>
+<thead>
+<tr>
+<th><strong>读</strong>  <strong>通</strong>  <strong>道</strong></th>
+<th>地址通道（A开头 r 表示read 读）</th>
+<th>数据通道（r表示读）</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Arvalid</td>
+<td>读地址有效，此信号表明该信道此时能有效读出地址和控制信息</td>
+<td>Rvalid</td>
+<td>读数据有效，此信号表示该信道能够有效的读出数据</td>
+</tr>
+<tr>
+<td></td>
+<td>Araddr</td>
+<td>读地址</td>
+<td>Rdata</td>
+<td>读数据</td>
+</tr>
+<tr>
+<td></td>
+<td>Arready</td>
+<td>读地址准备好了，该信号指示从器件准备好接受一个地址和相关联的控制信号</td>
+<td>Rready</td>
+<td>读数据准备好了，该信号指示从器件准备好接受数据</td>
+</tr>
+<tr>
+<td></td>
+<td>Arpprot</td>
+<td>保护类型，这个信号表示该事物的特权和安全级别，并确定是否该事务是一个数据存取或指令的访问</td>
+<td>Rresp</td>
+<td>读取响应，这个信号表明读事务处理的状态</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>写</strong>  <strong>通</strong>  <strong>道</strong></th>
+<th>地址通道</th>
+<th>数据通道</th>
+<th>应答通道</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Awvalid</td>
+<td>写地址有效。这个信号表示该主信令有效的写地址和控制信息。</td>
+<td>Wvalid</td>
+<td></td>
+<td>Bvalid</td>
+<td>写响应有效。此信号表明写命令的有效写入响应</td>
+</tr>
+<tr>
+<td></td>
+<td>写响应。这个信号表示写事务处理的状态。</td>
+<td>写地址</td>
+<td>Wdata</td>
+<td></td>
+<td>Bready</td>
+<td>响应准备。该信号指示在主主机可以接受一个响应信号</td>
+</tr>
+<tr>
+<td></td>
+<td>Awready</td>
+<td>写地址准备好了，该信号指示从器件准备好接受一个地址和相关联的控制信号</td>
+<td>Wstrb</td>
+<td>写选通, 这个信号表明该字节通道持有效数据。每一bit对应WDATA一个字节</td>
+<td>Bresp</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Awprot</td>
+<td>写通道保护类型</td>
+<td>Wready</td>
+<td>写准备好了。该信号指示从器件可以接受写数据。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>源码：</p>
+<p>//write</p>
+<p>always @( posedge S_AXI_ACLK )</p>
+<p>begin</p>
+<p>if ( S_AXI_ARESETN == 1’b0 )</p>
+<p>begin</p>
+<p>slv_reg0 &lt;= 0;</p>
+<p>slv_reg1 &lt;= 0;</p>
+<p>slv_reg2 &lt;= 0;</p>
+<p>slv_reg3 &lt;= 0;</p>
+<p>end</p>
+<p>else begin</p>
+<p>if (slv_reg_wren)</p>
+<p>begin</p>
+<p>case ( axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )</p>
+<p>2’h0:</p>
+<p>for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index =<br>byte_index+1 )</p>
+<p>if ( S_AXI_WSTRB[byte_index] == 1 ) begin</p>
+<p>// Respective byte enables are asserted as per write strobes</p>
+<p>// Slave register 0</p>
+<p>slv_reg0[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];</p>
+<p>// C[A +: B] = C[A+B-1 : B] 这个范围的变化</p>
+<p>//相当于当byte_index = 0的时候这句话就等价于：</p>
+<p>//当byte_index = 0的时候这句话就等价于：</p>
+<p>//slv_reg0[7:0] &lt;= S_AXI_WDATA[7:0];</p>
+<p>//当byte_index = 1的时候这句话就等价于：</p>
+<p>//slv_reg0[15:8] &lt;= S_AXI_WDATA[15:8];</p>
+<p>//当byte_index = 2的时候这句话就等价于：</p>
+<p>//slv_reg0[23:16] &lt;= S_AXI_WDATA[23:16];</p>
+<p>//当byte_index = 3的时候这句话就等价于：</p>
+<p>//slv_reg0[31:24] &lt;= S_AXI_WDATA[31:24];</p>
+<p>//也就是说，只有当写选通信号为1时，它所对应S_AXI_WDATA的字节才会被读//取。</p>
+<p>end</p>
+<p>2’h1:</p>
+<p>for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index =<br>byte_index+1 )</p>
+<p>if ( S_AXI_WSTRB[byte_index] == 1 ) begin</p>
+<p>// Respective byte enables are asserted as per write strobes</p>
+<p>// Slave register 1</p>
+<p>slv_reg1[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];</p>
+<p>end</p>
+<p>2’h2:</p>
+<p>for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index =<br>byte_index+1 )</p>
+<p>if ( S_AXI_WSTRB[byte_index] == 1 ) begin</p>
+<p>// Respective byte enables are asserted as per write strobes</p>
+<p>// Slave register 2</p>
+<p>slv_reg2[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];</p>
+<p>end</p>
+<p>2’h3:</p>
+<p>for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index =<br>byte_index+1 )</p>
+<p>if ( S_AXI_WSTRB[byte_index] == 1 ) begin</p>
+<p>// Respective byte enables are asserted as per write strobes</p>
+<p>// Slave register 3</p>
+<p>slv_reg3[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];</p>
+<p>end</p>
+<p>default : begin</p>
+<p>slv_reg0 &lt;= slv_reg0;</p>
+<p>slv_reg1 &lt;= slv_reg1;</p>
+<p>slv_reg2 &lt;= slv_reg2;</p>
+<p>slv_reg3 &lt;= slv_reg3;</p>
+<p>end</p>
+<p>endcase</p>
+<p>end</p>
+<p>end</p>
+<p>end</p>
+<p>这段程序的作用是，当PS那边向AXI4-Lite总线写数据时，PS这边负责将数据接收到寄存器slv_reg。而slv_reg寄存器有0~3共4个。至于赋值给哪一个由</p>
+<p>axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]决定，根据宏定义其实就是由axi_awaddr[3:2]<br>（写地址中不仅包含地址，而且包含了控制位，这里的[3:2]就是控制位）决定赋值给哪个slv_reg。</p>
+<h4 id="应答信号"><a href="#应答信号" class="headerlink" title="应答信号"></a>应答信号</h4><p><img src="https://gitee.com/shianpang/picture/raw/master/img/a6bc986c34fa873c5849ba800501bf86.png"></p>
+<p>写应答，主要是回复主机你这个写过程是没有问题的，那读为什么不需要这个过程呢？</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/502c7174ec674b10dec993c957973282.png"></p>
+<p>这时因为主机在读取数据时，从机可以直接通过读数据通道给主机反馈信息，因此就没有必要再来开辟一个单独的应答通道了。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p><img src="https://gitee.com/shianpang/picture/raw/master/img/d71c7d279bdbc6924dc7e8ebc28bd2c6.png">如果我们想读AXI4_Lite总线上的数据时，只需关注slv_reg的数据，我们可自行添加一段代码，如：</p>
+<p>如果我们想对AXI4_Lite信号写数据时，我们只需修改对reg_data_out的赋值，如：</p>
+<p>//写总线测试修改！！！！！！！！！</p>
+<p>wire[31:0]wlcd_xy;// = {10’d0,lcd_xy};</p>
+<p>assign wlcd_xy = {10’d0,lcd_xy};</p>
+<p>assign slv_reg_rden = axi_arready &amp; S_AXI_ARVALID &amp; ~axi_rvalid;</p>
+<p>always @(*)</p>
+<p>begin</p>
+<p>// Address decoding for reading registers</p>
+<p>case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )</p>
+<p>2’h0 : reg_data_out &lt;= wlcd_xy;//slv_reg0;</p>
+<p>2’h1 : reg_data_out &lt;= slv_reg1;</p>
+<p>2’h2 : reg_data_out &lt;= slv_reg2;</p>
+<p>2’h3 : reg_data_out &lt;= slv_reg3;</p>
+<p>default : reg_data_out &lt;= 0;</p>
+<p>endcase</p>
+<p>end</p>
+<p>最后强调下如果我们自定义的IP的地址被映射为0x43C00000，那么我们</p>
+<p>Xil_Out32(0x43C00000,Value)写的就是slv_reg0的值。如果地址偏移4位，如Xil_Out32(0x43C00000<br>+ 4,Value) 写的就是slv_reg1的值，依次类推。</p>
+<p>目前这里只有4个寄存器，那是因为之前选择的是4个，其实我们可以定义的更多</p>
+<p><img src="https://gitee.com/shianpang/picture/raw/master/img/2041d080203fde4b80dea6e8cc6d674e.png">在ps的头文件里可以看到我们自定义的IP的地址是有个范围的</p>
+<p>#define XPAR_MYIPFREQUENCY_0_S00_AXI_BASEADDR 0x43C00000</p>
+<p>#define XPAR_MYIPFREQUENCY_0_S00_AXI_HIGHADDR 0x43C0FFFF</p>
+<p>理论上只要基地址+ 偏移量不要超过HIGHADDR即可。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至shian_pang@foxmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
+    <div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1901371647&auto=1&height=66"></iframe>
+</div>
+
+<!--以下代码是为了支持随时拖动音乐控件的位置，如没有需求，可去掉下面代码-->
+<script>
+var $DOC = $(document)
+$('#musicMouseDrag').on('mousedown', function (e) {
+// 阻止文本选中
+$DOC.bind("selectstart", function () {
+return false;
+});
+$('#musicDragArea').css('height', '100%');
+var $moveTarget = $('#musicMouseDrag');
+$moveTarget.css('border', '1px dashed grey')
+var div_x = e.pageX - $moveTarget.offset().left;
+var div_y = e.pageY - $moveTarget.offset().top;
+$DOC.on('mousemove', function (e) {
+var targetX = e.pageX - div_x;
+var targetY = e.pageY - div_y;
+targetX = targetX < 0 ? 0 : (targetX + $moveTarget.outerWidth() >= window.innerWidth) ? window.innerWidth - $moveTarget.outerWidth() : targetX;
+targetY = targetY < 0 ? 0 : (targetY + $moveTarget.outerHeight() >= window.innerHeight) ? window.innerHeight - $moveTarget.outerHeight() : targetY;
+$moveTarget.css({'left': targetX + 'px', 'top': targetY + 'px', 'bottom': 'inherit', 'right': 'inherit'})
+}).on('mouseup', function () {
+$DOC.unbind("selectstart");
+$DOC.off('mousemove')
+$DOC.off('mouseup')
+$moveTarget.css('border', 'none')
+$('#musicDragArea').css('height', '10px');
+})
+})
+</script>
+
+
+
+
+
+</html>
